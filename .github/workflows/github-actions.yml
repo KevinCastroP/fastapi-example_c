@@ -11,5 +11,5 @@ jobs:
         run: docker build -t fastapi-example .
       - name: Prepare Docker Image
         run: docker tag fastapi-example caspin30/fastapi-example:v1
-      -name: Publish Docker Image
+      - name: Publish Docker Image
         run: docker push caspin30/fastapi-example:v1
