@@ -1,8 +1,11 @@
 name: GitHub Actions
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
-on: [push]
+on:
+  push:
+    branches:
+      - 'main'
 jobs:
-  Explore-GitHub-Actions:
+  Build:
     runs-on: ubuntu-latest
     steps:
       - 
@@ -27,3 +30,10 @@ jobs:
           context: .
           push: true
           tags: caspin30/fastapi-example:v1
+  Deploy:
+    needs: Build
+    runs-on: ubuntu-latest
+    steps:
+      - 
+        name: Deploy
+        run: echo "deploying application"
